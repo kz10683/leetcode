@@ -18,6 +18,16 @@ public class RemoveElement
      */
     public int removeElement(int[] nums, int val)
     {
-        return -1;
+        int curr = 0;
+        for (int i = 0; i < nums.length; i++)
+        {
+            if (nums[i] != val)
+            {
+                nums[curr] = nums[i];
+                curr++;
+            }
+        }
+
+        return curr;
     }
 }
