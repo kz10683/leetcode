@@ -1,5 +1,5 @@
 
-public class IntegerToRoman
+public class RomanToInteger
 {
     /**
      * Given a roman numeral, convert it to an integer.
