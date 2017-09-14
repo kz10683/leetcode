@@ -24,7 +24,6 @@ public class FirstBadVersion
         while (low != high)
         {
             int mid = low + (high - low) / 2;
-            System.out.println(mid);
             if (isBadVersion(mid))
             {
                 high = mid;
@@ -38,9 +37,6 @@ public class FirstBadVersion
         return high;
     }
 
-    /**
-     * Not used. Added simply for compilation reasons.
-     */
     private static boolean isBadVersion(int n)
     {
         return n >= 2;
