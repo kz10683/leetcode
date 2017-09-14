@@ -37,6 +37,9 @@ public class FirstBadVersion
         return high;
     }
 
+    /**
+     * The actual API call is on leetcode. This is for testing purposes only.
+     */
     private static boolean isBadVersion(int n)
     {
         return n >= 2;
