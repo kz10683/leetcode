@@ -1,2 +1,2 @@
 # leetcode
-Embrace the grind.
+The grind.
