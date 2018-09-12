@@ -14,7 +14,7 @@ public class ThreeSum
      */
     public List<List<Integer>> threeSum(int[] nums)
     {
-        Set<List<Integer>> set = new HashSet<List<Integer>>();
+        Set<List<Integer>> set = new HashSet<>();
 
         // Sort the array. At each index, start checking the sum including the number at
         // the next index and the end. If 0, add to the solution set. If larger,
@@ -41,6 +41,10 @@ public class ThreeSum
                     list.add(y);
                     list.add(z);
                     set.add(list);
+
+                    // Continue search
+                    start++;
+                    end--;
                 }
                 else if (sum > 0)
                 {
@@ -54,6 +58,67 @@ public class ThreeSum
         }
 
         return new ArrayList<>(set);
+    }
+
+    public List<List<Integer>> threeSumV2(int[] nums)
+    {
+        List<List<Integer>> list = new ArrayList<>();
+        if (nums == null || nums.length < 3)
+        {
+            return list;
+        }
+
+        Arrays.sort(nums);
+
+        for (int i = 0; i < nums.length - 2; i++)
+        {
+            int start = i + 1;
+            int end = nums.length - 1;
+
+            while (start < end)
+            {
+                int x = nums[i];
+                int y = nums[start];
+                int z = nums[end];
+                int sum = x + y + z;
+
+                if (sum == 0)
+                {
+                    List<Integer> currentList = new ArrayList();
+                    currentList.add(x);
+                    currentList.add(y);
+                    currentList.add(z);
+                    list.add(currentList);
+
+                    // Skip duplicates
+                    while (i < nums.length - 1 && nums[i] == nums[i + 1])
+                    {
+                        i++;
+                    }
+                    while (start < nums.length - 1 && nums[start] == nums[start + 1])
+                    {
+                        start++;
+                    }
+                    while (end > 0 && nums[end] == nums[end - 1])
+                    {
+                        end--;
+                    }
+
+                    // Continue search
+                    start++;
+                    end--;
+                }
+                else if (sum > 0)
+                {
+                    end--;
+                }
+                else
+                {
+                    start++;
+                }
+            }
+        }
+        return list;
     }
 
 }
